@@ -1,6 +1,6 @@
 package net.sistr.fgwithlm.forge;
 
-import me.shedaniel.architectury.platform.forge.EventBuses;
+import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sistr.fgwithlm.FGWithLMMod;
 

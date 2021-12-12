@@ -10,6 +10,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.sistr.flexibleguns.util.*;
+import net.sistr.littlemaidmodelloader.resource.util.LMSounds;
 import net.sistr.littlemaidrebirth.api.mode.Mode;
 import net.sistr.littlemaidrebirth.api.mode.ModeType;
 import net.sistr.littlemaidrebirth.entity.LittleMaidEntity;
@@ -28,6 +29,7 @@ public class FlexibleGunMode extends Mode {
     protected boolean prevCanSee = true;
     protected boolean rightMove;
     protected boolean frontMove;
+    protected int soundTimer;
 
     public FlexibleGunMode(ModeType<? extends Mode> modeType, String name, LittleMaidEntity maid, int maxModeHoldTime) {
         super(modeType, name);
@@ -60,11 +62,13 @@ public class FlexibleGunMode extends Mode {
         );
         targetAtVelocity = Vec3d.ZERO;
         this.maid.setAimingBow(true);
+        this.maid.play(LMSounds.SIGHTING);
     }
 
     @Override
     public void tick() {
         modeHoldTime--;
+        soundTimer--;
 
         //横移動
         LivingEntity target = this.maid.getTarget();
@@ -133,6 +137,10 @@ public class FlexibleGunMode extends Mode {
 
         //狙いとターゲットが1以下かつ、視線が通っていれば射撃
         if (targetAt.subtract(targetPos).lengthSquared() < 1 && canSee) {
+            if (soundTimer < 0) {
+                soundTimer = 40;
+                this.maid.play(LMSounds.SHOOT_BURST);
+            }
             ((Inputable) this.maid).inputKeyFG(Input.FIRE, true);
             if (!isZoom) {
                 ((Inputable) this.maid).inputKeyFG(Input.ZOOM, true);

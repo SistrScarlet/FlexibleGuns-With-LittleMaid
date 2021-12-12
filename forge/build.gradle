@@ -15,19 +15,24 @@ configurations {
     developmentForge.extendsFrom common
 }
 
+repositories {
+    maven {
+        name = 'kotlinforforge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+    }
+}
+
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
     // Remove the next line if you don't want to depend on the API
-    modApi "me.shedaniel:architectury-forge:${rootProject.architectury_version}"
+    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
-    modImplementationMapped fileTree(dir: './libs', include: '*.jar')
+    implementation 'thedarkcolour:kotlinforforge:1.15.1'
 
-    common(project(path: ":common", configuration: "dev")) {
-        transitive = false
-    }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) {
-        transitive = false
-    }
+    modImplementationMapped fileTree(dir: './mods', include: '*.jar')
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
 processResources {

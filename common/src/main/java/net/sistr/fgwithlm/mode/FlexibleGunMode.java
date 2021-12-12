@@ -122,7 +122,7 @@ public class FlexibleGunMode extends Mode {
                 targetAt.getX(), targetAt.getY(), targetAt.getZ(), 1, 0, 0, 0, 0);
 
         this.maid.getLookControl().lookAt(targetAt.getX(), targetAt.getY(), targetAt.getZ(), 30, 30);
-        this.maid.yaw = this.maid.headYaw;
+        this.maid.setYaw(this.maid.headYaw);
         //ターゲットへの視線チェックは10tickごと
         boolean canSee = this.maid.age % 10 == 0 ? this.maid.getVisibilityCache().canSee(target) : prevCanSee;
         prevCanSee = canSee;
@@ -163,7 +163,7 @@ public class FlexibleGunMode extends Mode {
                         Vec3d ePos = e.getCameraPosVec(1f);
                         float eWidthRange = getDeg((float) maidPos.subtract(ePos).length(), e.getWidth() / 2);
                         float eYaw = getTargetYaw(maidPos, ePos);
-                        return inDegRange(this.maid.yaw, eYaw, acc + eWidthRange);
+                        return inDegRange(this.maid.getYaw(), eYaw, acc + eWidthRange);
                     }
                     return false;
                 }

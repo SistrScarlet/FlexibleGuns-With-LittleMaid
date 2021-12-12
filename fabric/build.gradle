@@ -35,7 +35,7 @@ dependencies {
 
     include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:1.1.1")
 
-    modImplementationMapped fileTree(dir: './libs', include: '*.jar')
+    modImplementationMapped fileTree(dir: './mods', include: '*.jar')
 
     common(project(path: ":common", configuration: "dev")) {
         transitive = false

@@ -27,7 +27,9 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
-    implementation 'thedarkcolour:kotlinforforge:1.15.1'
+    implementation 'thedarkcolour:kotlinforforge:3.0.0'
+    forgeRuntimeLibrary 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0'
+    forgeRuntimeLibrary 'org.jetbrains.kotlin:kotlin-reflect:1.6.0'
 
     modImplementationMapped fileTree(dir: './mods', include: '*.jar')
 

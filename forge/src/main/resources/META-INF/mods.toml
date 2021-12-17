@@ -1,35 +1,54 @@
-modLoader = "javafml"
-loaderVersion = "[35,)"
+modLoader = "kotlinforforge"
+loaderVersion = "[3,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT"
 
 [[mods]]
-modId = "examplemod"
+modId = "fgwithlm"
 version = "${version}"
-displayName = "Example Mod"
-authors = "Me!"
-description = '''
-This is an example description! Tell everyone what your mod is about!
-'''
+displayName = "FlexibleGuns with LittleMaid"
+authors = "Sistr"
+description = "FlexibleGunsの銃をメイドさんが扱えるようになるModです。"
 #logoFile = ""
 
-[[dependencies.examplemod]]
+[[dependencies.fgwithlm]]
 modId = "forge"
 mandatory = true
-versionRange = "[35,)"
+versionRange = "[39,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.fgwithlm]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.2,)"
+versionRange = "[1.18.1,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.fgwithlm]]
 modId = "architectury"
 mandatory = true
-versionRange = "[1.1.55,)"
+versionRange = "[3.2.49,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.fgwithlm]]
+modId = "flexibleguns"
+mandatory = true
+versionRange = "[1.4.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.fgwithlm]]
+modId = "littlemaidmodelloader"
+mandatory = true
+versionRange = "[2.1.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.fgwithlm]]
+modId = "littlemaidrebirth"
+mandatory = true
+versionRange = "[2.1.0,)"
 ordering = "AFTER"
 side = "BOTH"

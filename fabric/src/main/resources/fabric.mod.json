@@ -20,11 +20,11 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.12.11",
     "fabric": "*",
-    "minecraft": ">=1.16.4",
-    "architectury": ">=1.1.55",
-    "flexibleguns": ">=1.3.0",
+    "minecraft": ">=1.18.1",
+    "architectury": ">=3.2.49",
+    "flexibleguns": ">=1.4.0",
     "littlemaidmodelloader": ">=2.1.0",
     "littlemaidrebirth": ">=2.1.0"
   },
